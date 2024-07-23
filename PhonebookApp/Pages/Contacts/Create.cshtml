@@ -1,0 +1,20 @@
+﻿@page
+@model PhonebookApp.Pages.Contacts.CreateModel
+@inject PhonebookApp.Services.ContactService ContactService
+
+<h1>Add Contact</h1>
+
+<form method="post">
+    <div>
+        <label>Name:</label>
+        <input class="form-control" type="text" asp-for="Contact.Name" />
+    </div>
+    <div>
+        <label>Phone:</label>
+        <input class="form-control" type="text" asp-for="Contact.PhoneNumber" />
+    </div>
+    <button class="btn btn-success" type="submit">Save</button>
+</form>
+<button class="btn btn-primary">
+    <a style="color:white; text-decoration:none" asp-page="./Index">Back to List</a>
+</button>

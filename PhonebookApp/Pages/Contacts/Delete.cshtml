@@ -1,0 +1,28 @@
+﻿@page "{id:int}"
+@model PhonebookApp.Pages.Contacts.DeleteModel
+@inject PhonebookApp.Services.ContactService ContactService
+
+<h1>Delete Contact</h1>
+
+@if (Model.Contact != null)
+{
+    <form method="post">
+        <input type="hidden" asp-for="Contact.Id" />
+        <div>
+            <label>Name:</label>
+            <input class="form-control" type="text" asp-for="Contact.Name" readonly />
+        </div>
+        <div>
+            <label>Phone:</label>
+            <input class="form-control" type="text" asp-for="Contact.PhoneNumber" readonly />
+        </div>
+        <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+}
+else
+{
+    <p>Contact not found.</p>
+}
+<button class="btn btn-primary">
+    <a style="color:white; text-decoration:none" asp-page="./Index">Back to List</a>
+</button>

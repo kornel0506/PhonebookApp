@@ -1,0 +1,21 @@
+﻿@page "{id:int}"
+@model EditModel
+@inject PhonebookApp.Services.ContactService ContactService
+
+<h1>Edit Contact</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Contact.Id" />
+    <div>
+        <label>Name:</label>
+        <input class="form-control" type="text" asp-for="Contact.Name" />
+    </div>
+    <div>
+        <label>Phone:</label>
+        <input class="form-control" type="text" asp-for="Contact.PhoneNumber" />
+    </div>
+    <button class="btn btn-warning" type="submit">Save</button>
+</form>
+<button class="btn btn-primary">
+    <a style="color:white; text-decoration:none" asp-page="./Index">Back to List</a>
+</button>

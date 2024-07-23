@@ -1,0 +1,31 @@
+﻿@page
+@model PhonebookApp.Pages.Contacts.IndexModel
+@inject PhonebookApp.Services.ContactService ContactService
+
+<h1>Contacts</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in ContactService.GetContacts())
+        {
+            <tr>
+                <td>@contact.Name</td>
+                <td>@contact.PhoneNumber</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@contact.Id">Edit</a> |
+                    <a asp-page="./Delete" asp-route-id="@contact.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button class="btn btn-primary">
+    <a style="color:white; text-decoration:none" asp-page="./Create">Add New Contact</a>
+</button>
